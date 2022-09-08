@@ -22,8 +22,11 @@ const ItemListContainer = () => {
         const productos = async () => {
             try {
                 let data = await promesa;
+                if(idProducto == null) { setListaProductos(data); }
+                else{
                 data = data.filter(listaProductos => listaProductos.id === idProducto)
                 setListaProductos(data);
+                }
             }
             catch(e){
                 console.log(e);
