@@ -1,0 +1,75 @@
+[
+    {
+        "id": "1",
+        "nombre": "Air 90",
+        "marca": "Nike",
+        "codigo": "NA9000",
+        "tipo": "Sneakers",
+        "precio": 25000.00,
+        "descripcion": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adipiscing  elit, sed do eiusmod tempor incididunt ut",
+        "imagen": {
+            "portada": "./img/nike/Nike_air_90/nike_air_90_index.webp",
+            "left": "./img/nike/Nike_air_90/nike_air_90_left.webp",
+            "right": "./img/nike/Nike_air_90/nike_air_90_right.webp",
+            "up": "./img/nike/Nike_air_90/nike_air_90_up.webp",
+            "down": "./img/nike/Nike_air_90/nike_air_90_down.webp",
+            "back": "./img/nike/Nike_air_90/nike_air_90_back.webp"
+        }
+    },
+
+    {
+        "id": "2",
+        "nombre": "Air Trainer",
+        "marca": "Nike",
+        "codigo": "NAT200",
+        "tipo": "Sneakers",
+        "precio": 25000.00,
+        "descripcion": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adipiscing  elit, sed do eiusmod tempor incididunt ut",
+        "imagen": {
+            "portada": "./img/nike/Nike_air_trainer/nike_air_trainer_index.webp",
+            "left": "./img/nike/Nike_air_trainer/nike_air_trainer_left.webp",
+            "right": "./img/nike/Nike_air_trainer/nike_air_trainer_right.webp",
+            "up": "./img/nike/Nike_air_trainer/nike_air_trainer_up.webp",
+            "down": "./img/nike/Nike_air_trainer/nike_air_trainer_down.webp",
+            "back": "./img/nike/Nike_air_trainer/nike_air_trainer_back.webp"
+        }
+    },
+
+    {
+        "id": "3",
+        "nombre": "Lebron",
+        "marca": "Nike",
+        "codigo": "NLE100",
+        "tipo": "Sneakers",
+        "precio": 25000.00,
+        "descripcion": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adipiscing  elit, sed do eiusmod tempor incididunt ut",
+        "imagen": {
+            "portada": "./img/nike/Nike_lebron/nike_lebron_index.webp",
+            "left": "./img/nike/Nike_lebron/nike_lebron_left.webp",
+            "right": "./img/nike/Nike_lebron/nike_lebron_right.webp",
+            "up": "./img/nike/Nike_lebron/nike_lebron_up.webp",
+            "down": "./img/nike/Nike_lebron/nike_lebron_down.webp",
+            "back": "./img/nike/Nike_lebron/nike_lebron_back.webp"
+        }
+    },
+
+    {
+        "id": "4",
+        "nombre": "Zoom",
+        "marca": "Nike",
+        "codigo": "NZM100",
+        "tipo": "Sneakers",
+        "precio": 25000.00,
+        "descripcion": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adipiscing  elit, sed do eiusmod tempor incididunt ut",
+        "imagen": {
+            "portada": "./img/nike/Nike_zoom/nike_zoom_index.webp",
+            "left": "./img/nike/Nike_zoom/nike_zoom_left.webp",
+            "right": "./img/nike/Nike_zoom/nike_zoom_right.webp",
+            "up": "./img/nike/Nike_zoom/nike_zoom_up.webp",
+            "down": "./img/nike/Nike_zoom/nike_zoom_down.webp",
+            "back": "./img/nike/Nike_zoom/nike_zoom_back.webp"
+        }
+    }
+
+
+]
