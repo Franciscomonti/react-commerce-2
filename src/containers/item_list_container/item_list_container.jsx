@@ -6,15 +6,15 @@ const ItemListContainer = () => {
     
     const [listaProductos, setListaProductos] = useState([])
     const [loadSpin, setLoadSpin] = useState(false)
-    const {idProducto} = useParams()
+    const {idCategory} = useParams()
 
     const promesa = new Promise((response)=>{
         setTimeout(async() => {
-            const dataResponse = await fetch('./JSON/productos.json');
+            const dataResponse = await fetch('/JSON/productos.json');
             let data = await dataResponse.json();
             setLoadSpin(true);
             response(data);
-        },2000);
+        },0);
     });
 
     useEffect(() => {
@@ -22,9 +22,9 @@ const ItemListContainer = () => {
         const productos = async () => {
             try {
                 let data = await promesa;
-                if(idProducto == null) { setListaProductos(data); }
+                if(idCategory == null) { setListaProductos(data); }
                 else{
-                data = data.filter(listaProductos => listaProductos.id === idProducto)
+                data = data.filter(listaProductos => listaProductos.marca === idCategory)
                 setListaProductos(data);
                 }
             }
@@ -35,9 +35,9 @@ const ItemListContainer = () => {
         
         productos()    
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[idProducto]);
+    },[idCategory]);
 
-    return <>{loadSpin ? <ItemList productos={listaProductos}/> : <div style={load_blq}><img src={ 'img/gifs/spinner.gif'} style={spinner_style} alt="Loading"></img>
+    return <>{loadSpin ? <ItemList productos={listaProductos}/> : <div style={load_blq}><img src={ '/img/gifs/spinner.gif'} style={spinner_style} alt="Loading"></img>
     <p>Estamos Cargando tu Proxima Compra...</p></div>} </>
 
 

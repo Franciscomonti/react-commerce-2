@@ -2,43 +2,45 @@ import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../../components/item_detail/item_detail';
 
-
 const ItemDetailContainer = () => {
+
     const [Item, setItem ] = useState([])
     const [loadSpin, setLoadSpin] = useState(false)
     const {idProducto} = useParams()
 
-    
-
-    const getItem = new Promise((response) => {
-        setTimeout(async()=> {
-            const itemResponse = await fetch('./JSON/productos.json');
-            let itemData = itemResponse.json();
-            setLoadSpin(true);
-            response(itemData);
+const getItem = new Promise(
+    data => {
+        setTimeout(() =>{
+            fetch('/JSON/productos.json')
+            .then(response =>{ response.json()
+                .then(json => data(json))
+            }
+            )
         },2000);
-    });
+    }
+)
 
-    useEffect(() => {
-        const item = async() => {
-            try {
-                let itemData = await getItem;
-                itemData = itemData.filter(listaProductos => listaProductos.id === idProducto)
-                setItem(itemData)
+const item = async () => {
+    try { 
+        getItem.then(
+            response => {response = response.find(Item => Item.id === idProducto)
+            setItem(response)
+            setLoadSpin(true)
+            console.log(response)
             }
-            catch(e){
-                console.log(e)
-            }
-    
-    };
+        )
+    }catch(e){
+    console.log(e)
+}
+}
 
-    item()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-},[idProducto]);
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+useEffect( () => { item() } , [ idProducto ] );
 
-return <>{loadSpin ? <ItemDetail productos={Item} key={Item.id}/> : <div style={load_blq}> <img src={ 'img/gifs/spinner.gif'} style={spinner_style} alt="Loading"/> <p>Estamos Cargando tu Proxima Compra...</p></div>} </>
+return <>{loadSpin ? <ItemDetail producto={Item} key={Item.id} /> : <div style={load_blq}> <img src={ '/img/gifs/spinner.gif'} style={spinner_style} alt="Loading"/> <p>Estamos Cargando los detelles del producto...</p></div>} </>
 
 }
+
 
 
 const load_blq = {

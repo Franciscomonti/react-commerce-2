@@ -1,16 +1,17 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import CartWidget from '../../components/cart_widget/cart_widget';
 
 const NavBar = () => {
     return (
         <div>
         <nav style={style_navBar}>
-            <div style={style_navLogo}><img src={'/img/logo/logo.png'} alt="logo" style={style_navLogo_Img}/></div>
+            <Link to="/" style={style_navLogo}><img src={'/img/logo/logo.png'} alt="logo" style={style_navLogo_Img}/></Link>
             <ul style={style_nav_blq_btn}>
-                <li style={style_nav_blq_btn_li}>Inicio</li>
-                <li style={style_nav_blq_btn_li}>Productos</li>
-                <li style={style_nav_blq_btn_li}>Acerca de nosotros</li>
-                <li style={style_nav_blq_btn_li}>Contactos</li>
+                <NavLink to="/" style={style_nav_blq_btn_li}>Todos</NavLink>
+                <NavLink to="/category/Adidas" style={style_nav_blq_btn_li}>Adidas</NavLink>
+                <NavLink to="/category/Nike" style={style_nav_blq_btn_li}>Nike</NavLink>
+                
             </ul>
             <div style={style_nav_cart}>
                 <CartWidget/>
@@ -57,7 +58,8 @@ const style_nav_blq_btn_li = {
     fontFamily: "Arial, Helvetica, sans-serif",
     fontSize: "18px",
     color: "black",
-    cursor: "pointer",                   
+    cursor: "pointer",    
+    textStyle: 'none',             
 }
 
 const style_nav_cart = {
