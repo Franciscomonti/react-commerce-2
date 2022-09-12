@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
-import ItemDetail from '../../components/item_detail/item_detail';
+import ItemDetail from '../../components/item_detail/itemDetail';
 
 const ItemDetailContainer = () => {
 
@@ -23,7 +23,7 @@ const getItem = new Promise(
 const item = async () => {
     try { 
         getItem.then(
-            response => {response = response.find(Item => Item.id === idProducto)
+            response => {response = response.find(Item => Item.nombre === idProducto)
             setItem(response)
             setLoadSpin(true)
             console.log(response)

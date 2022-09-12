@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
-const Item = ({ prod : { nombre, precio, portada, down, right, back, marca, descripcion, id, key } }) => (
+const Item = ({ prod : { nombre, precio, portada, down, right, back, marca, descripcion, id, key } }) => {
     
+    const [imagenActiva, setImagenActiva] = useState(portada)
+
+return(
     <div style={ productos_cards }>
         <div style= { productos_cards_img_blq }>
             <div style= { productos_cards_blq_img_peq }>
-                <img src={ portada } alt={key} style= { productos_cards_img_peq }/>
-                <img src={ down } alt={key} style= { productos_cards_img_peq }/>
-                <img src={ right } alt={key} style= { productos_cards_img_peq }/>
-                <img src={ back} alt={key} style= { productos_cards_img_peq }/>
+                <img onClick={() => setImagenActiva(portada)} src={ portada } alt={key} style= { productos_cards_img_peq }/>
+                <img onClick={() => setImagenActiva(down)} src={ down } alt={key} style= { productos_cards_img_peq }/>
+                <img onClick={() => setImagenActiva(right)} src={ right } alt={key} style= { productos_cards_img_peq }/>
+                <img onClick={() => setImagenActiva(back)} src={ back} alt={key} style= { productos_cards_img_peq }/>
             </div>
         
             <div style= { productos_cards_blq_img_grande }>
-                <img src={ portada } alt={key} style= { productos_cards_img_grande }/>
+                <img src={ imagenActiva } alt={key} style= { productos_cards_img_grande }/>
             </div>    
         </div>
 
@@ -33,15 +36,15 @@ const Item = ({ prod : { nombre, precio, portada, down, right, back, marca, desc
                     <option value="42">42</option>
                     <option value="43">43</option>
                 </select>
-                <button style={ productos_cards_caract_btn_add}>Add to Cart</button>
+                <button style={ productos_cards_caract_btn_add}>Añadir al carrito</button>
                 <button style={ productos_cards_caract_btn_fav}><img src='/img/icon/fav_icon.svg' alt='favicon' style={productos_cards_caract_btn_fav_img}/></button>
-                <Link style={ productos_cards_caract_btn_add} to={`/detalle/${id}`}>Detalles</Link>
+                <Link style={ productos_cards_caract_btn_add} to={`/detalle/${nombre}`}>Detalles</Link>
             </div>
             
         </div>
     </div>
     
-)
+)}
 
 const productos_cards = {
     width: '90%',
@@ -58,15 +61,15 @@ const productos_cards = {
 const productos_cards_img_blq  = {
     display:'flex',
     justifyContent: 'space-between',
-
 }
 
-const productos_cards_blq_img_grande  ={
+let productos_cards_blq_img_grande  ={
     height: '100%',
     display: 'flex',
     backgroundColor: '#fafafa',
     margin: '0px 5px',
 }
+
 const productos_cards_img_grande = {
     width: '650px',
     height: '300px',
@@ -78,19 +81,16 @@ const productos_cards_blq_img_peq = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    
-
 }
 
 const productos_cards_img_peq  = {
-
     width: '70px',
     height: '70px',
     objectFit: 'contain',
     cursor: 'pointer',
     backgroundColor: '#fafafa',
-
 }
+
 
 const productos_cards_caract_blq  = {
     width: '400px',
@@ -98,13 +98,11 @@ const productos_cards_caract_blq  = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-
 }
 
 const productos_cards_caract_marca = {
     margin:'0',
     padding: '0',
-
 }
 
 const productos_cards_title = {
@@ -112,7 +110,6 @@ const productos_cards_title = {
     fontWeight: '500',
     margin:'0',
     padding: '0',
-
 }
 
 const productos_cards_caract_descrip = {
@@ -126,7 +123,6 @@ const productos_cards_caract_descrip = {
 const productos_cards_price = {
     margin:'0',
     padding: '0',
-    
 }
 
 const productos_cards_price_span = {
@@ -137,7 +133,6 @@ const productos_cards_price_span = {
 const productos_cards_caract_btn_blq = {
     height: '50px',
     display: 'flex',
-
 }
 
 const productos_cards_caract_btn_size = {
@@ -167,7 +162,6 @@ const productos_cards_caract_btn_add = {
     textDecoration: 'none', 
     color: 'black',
     fontSize: '14px',
-
 }
 
 const productos_cards_caract_btn_fav = {
@@ -180,11 +174,12 @@ const productos_cards_caract_btn_fav = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    
 }
 
 const productos_cards_caract_btn_fav_img = {
     width: '30px',
     objectFit: 'cover',
 }
+
+
 export default Item

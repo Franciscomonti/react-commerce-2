@@ -1,55 +1,46 @@
-import React from 'react'
 
-const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, marca, descripcionLarga, }}) => (
+import React, { useState } from 'react'
 
+const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, marca, descripcionLarga, }}) => {
+
+    const [imagenActiva, setImagenActiva] = useState(portada)
+
+    return(
     
         <div style={ productos_cards }>
             <div style= { productos_cards_img_blq }>
                 <div style= { productos_cards_blq_img_peq }>
-                    <img src={ portada } alt={key} style= { productos_cards_img_peq }/>
-                    <img src={ down } alt={key} style= { productos_cards_img_peq }/>
-                    <img src={ right } alt={key} style= { productos_cards_img_peq }/>
-                    <img src={ back} alt={key} style= { productos_cards_img_peq }/>
+                    <img onClick={() => setImagenActiva(portada)} src={ portada } alt={key} style= { productos_cards_img_peq }/>
+                    <img onClick={() => setImagenActiva(down)} src={ down } alt={key} style= { productos_cards_img_peq }/>
+                    <img onClick={() => setImagenActiva(right)} src={ right } alt={key} style= { productos_cards_img_peq }/>
+                    <img onClick={() => setImagenActiva(back)} src={ back} alt={key} style= { productos_cards_img_peq }/>
                 </div>
-            
                 <div style= { productos_cards_blq_img_grande }>
-                    <img src={ portada } alt={key} style= { productos_cards_img_grande }/>
+                    <img src={ imagenActiva } alt={key} style= { productos_cards_img_grande }/>
                 </div>    
             </div>
     
             <div style={productos_cards_caract_blq }>
                 <div style={productos_cards_caract_blq_detal}>
-                    
-                        <h2 style={ productos_cards_caract_marca}>{ marca }  { nombre }</h2>
-                        
-                    
+                    <h2 style={ productos_cards_caract_marca}>{ marca }  { nombre }</h2>    
                     <h3 style={ productos_cards_price }><span style= { productos_cards_price_span }> ${ precio }</span> </h3>
-
                     <div style={ productos_cards_caract_btn_blq}>
-                    <select name='size' id='size' style={ productos_cards_caract_btn_size}>
-                        <option value="38">38</option>
-                        <option value="39">39</option>
-                        <option value="40">40</option>
-                        <option value="41">41</option>
-                        <option value="42">42</option>
-                        <option value="43">43</option>
-                    </select>
-                    <button style={ productos_cards_caract_btn_add}>Add to Cart</button>
-                    <button style={ productos_cards_caract_btn_fav}><img src='/img/icon/fav_icon.svg' alt='favicon' style={productos_cards_caract_btn_fav_img}/></button>
-                    
-                </div>
-                
-                
+                        <select name='size' id='size' style={ productos_cards_caract_btn_size}>
+                            <option value="38">38</option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                        </select>
+                        <button style={ productos_cards_caract_btn_add}>Añadir al carrito</button>
+                        <button style={ productos_cards_caract_btn_fav}><img src='/img/icon/fav_icon.svg' alt='favicon' style={productos_cards_caract_btn_fav_img}/></button>
+                    </div>
                 </div>
                 <p style={ productos_cards_caract_descrip}>{descripcionLarga}</p>
-                
-                
             </div>
-
-           
         </div>
-        
-    )
+    )};
     
     const productos_cards = {
         width: '90%',
@@ -71,8 +62,8 @@ const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, m
     }
     
     const productos_cards_blq_img_grande  ={
-       width: '1000px',
-       height: '450px',
+        width: '1000px',
+        height: '450px',
         display: 'flex',
         backgroundColor: '#fafafa',
         margin: '0px 5px',
@@ -88,19 +79,15 @@ const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, m
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'start',
-       
-    
     }
     
     const productos_cards_img_peq  = {
-    
         width: '75px',
         height: '75px',
         objectFit: 'contain',
         cursor: 'pointer',
         margin: '0px 0px 20px 0px',
         backgroundColor: '#fafafa',
-    
     }
     
     const productos_cards_caract_blq  = {
@@ -118,16 +105,12 @@ const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, m
         display: 'flex',
         flexDirection: 'column',
         width: '500px',
-       
-
     }
-  
+
     const productos_cards_caract_marca = {
         margin:'0 20px 20px 0px',
         padding: '0',
     }
-    
-  
     
     const productos_cards_caract_descrip = {
         margin:'10px 0px 20px',
