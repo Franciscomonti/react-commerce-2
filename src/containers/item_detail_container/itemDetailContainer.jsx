@@ -26,7 +26,6 @@ const item = async () => {
             response => {response = response.find(Item => Item.nombre === idProducto)
             setItem(response)
             setLoadSpin(true)
-            console.log(response)
             }
         )
     }catch(e){
@@ -40,8 +39,6 @@ useEffect( () => { item() } , [ idProducto ] );
 return <>{loadSpin ? <ItemDetail producto={Item} key={Item.id} /> : <div style={load_blq}> <img src={ '/img/gifs/spinner.gif'} style={spinner_style} alt="Loading"/> <p>Estamos Cargando los detelles del producto...</p></div>} </>
 
 }
-
-
 
 const load_blq = {
     display: 'flex',

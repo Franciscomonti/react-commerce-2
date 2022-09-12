@@ -14,7 +14,7 @@ const ItemListContainer = () => {
             let data = await dataResponse.json();
             setLoadSpin(true);
             response(data);
-        },0);
+        },2000);
     });
 
     useEffect(() => {
