@@ -59,7 +59,7 @@ const style_nav_blq_btn_li = {
     fontSize: "18px",
     color: "black",
     cursor: "pointer",    
-    textStyle: 'none',             
+    textDecoration: 'none',             
 }
 
 const style_nav_cart = {

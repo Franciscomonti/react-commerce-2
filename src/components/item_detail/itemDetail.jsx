@@ -1,9 +1,17 @@
 
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
+import ItemCount from '../item-count/itemCount';
 
-const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, marca, descripcionLarga, }}) => {
+const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, marca, descripcionLarga, stock, count }}) => {
 
     const [imagenActiva, setImagenActiva] = useState(portada)
+    const [estaAgregado, setEstaAgregado] = useState(false)
+
+
+    function agregarCarrito() { 
+        setEstaAgregado(true)
+    }
 
     return(
     
@@ -22,20 +30,19 @@ const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, m
     
             <div style={productos_cards_caract_blq }>
                 <div style={productos_cards_caract_blq_detal}>
+
                     <h2 style={ productos_cards_caract_marca}>{ marca }  { nombre }</h2>    
                     <h3 style={ productos_cards_price }><span style= { productos_cards_price_span }> ${ precio }</span> </h3>
+                    
                     <div style={ productos_cards_caract_btn_blq}>
-                        <select name='size' id='size' style={ productos_cards_caract_btn_size}>
-                            <option value="38">38</option>
-                            <option value="39">39</option>
-                            <option value="40">40</option>
-                            <option value="41">41</option>
-                            <option value="42">42</option>
-                            <option value="43">43</option>
-                        </select>
-                        <button style={ productos_cards_caract_btn_add}>Añadir al carrito</button>
-                        <button style={ productos_cards_caract_btn_fav}><img src='/img/icon/fav_icon.svg' alt='favicon' style={productos_cards_caract_btn_fav_img}/></button>
+
+                        { estaAgregado ? <div style={productos_cards_btns_blq}>  <Link to='/' style={productos_cards_btns}>Seguir comprando</Link> <Link to='/cart' style={productos_cards_btns}>Ir al carrito</Link> </div> 
+                        : <ItemCount style={ productos_cards_caract_btn_size} initial={1} stock={stock} onAdd={agregarCarrito} />
+                        }
+
                     </div>
+
+                    <p>Stock disponible: {stock}</p>
                 </div>
                 <p style={ productos_cards_caract_descrip}>{descripcionLarga}</p>
             </div>
@@ -65,7 +72,7 @@ const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, m
         width: '1000px',
         height: '450px',
         display: 'flex',
-        backgroundColor: '#fafafa',
+        backgroundColor: '#f6f6f6',
         margin: '0px 5px',
     }
     const productos_cards_img_grande = {
@@ -87,7 +94,7 @@ const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, m
         objectFit: 'contain',
         cursor: 'pointer',
         margin: '0px 0px 20px 0px',
-        backgroundColor: '#fafafa',
+        backgroundColor: '#f6f6f6',
     }
     
     const productos_cards_caract_blq  = {
@@ -151,8 +158,8 @@ const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, m
         border: '0.5 px solid transparent',
     }
     
-    const productos_cards_caract_btn_add = {
-        margin: '5px 10px',
+    const productos_cards_btns = {
+        margin: '0px 10px',
         height: '40px',
         cursor: 'pointer',
         borderRadius: '5px',
@@ -166,28 +173,11 @@ const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, m
         textDecoration: 'none', 
         color: 'black',
         fontSize: '14px',
-    
-    }
-    
-    const productos_cards_caract_btn_fav = {
-        margin: '5px',
-        height: '40px',
-        width: '40px',
-        cursor: 'pointer',
-        borderRadius: '5px',
-        border: '0.5px solid transparent ',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
         
-    }
-    
-    const productos_cards_caract_btn_fav_img = {
-        width: '30px',
-        objectFit: 'cover',
-    }
-    
+      }
 
-
+    const productos_cards_btns_blq = {
+        display: 'flex',
+    }
 
 export default ItemDetail

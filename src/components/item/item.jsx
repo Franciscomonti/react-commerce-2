@@ -28,14 +28,6 @@ return(
             <p style={ productos_cards_caract_descrip}>{descripcion}</p>
             
             <div style={ productos_cards_caract_btn_blq}>
-                <select name='size' id='size' style={ productos_cards_caract_btn_size}>
-                    <option value="38">38</option>
-                    <option value="39">39</option>
-                    <option value="40">40</option>
-                    <option value="41">41</option>
-                    <option value="42">42</option>
-                    <option value="43">43</option>
-                </select>
                 <button style={ productos_cards_caract_btn_add}>Añadir al carrito</button>
                 <button style={ productos_cards_caract_btn_fav}><img src='/img/icon/fav_icon.svg' alt='favicon' style={productos_cards_caract_btn_fav_img}/></button>
                 <Link style={ productos_cards_caract_btn_add} to={`/detalle/${nombre}`}>Detalles</Link>
@@ -66,7 +58,7 @@ const productos_cards_img_blq  = {
 let productos_cards_blq_img_grande  ={
     height: '100%',
     display: 'flex',
-    backgroundColor: '#fafafa',
+    backgroundColor: '#f6f6f6',
     margin: '0px 5px',
 }
 
@@ -88,7 +80,7 @@ const productos_cards_img_peq  = {
     height: '70px',
     objectFit: 'contain',
     cursor: 'pointer',
-    backgroundColor: '#fafafa',
+    backgroundColor: '#f6f6f6',
 }
 
 
@@ -133,18 +125,6 @@ const productos_cards_price_span = {
 const productos_cards_caract_btn_blq = {
     height: '50px',
     display: 'flex',
-}
-
-const productos_cards_caract_btn_size = {
-    margin: '5px 5px 5px 0px',
-    height: '40px',
-    width: '40px',
-    padding: '0px',
-    color: 'white',
-    backgroundColor: 'black',
-    cursor: 'pointer',
-    borderRadius: '5px',
-    border: '0.5 px solid transparent',
 }
 
 const productos_cards_caract_btn_add = {
