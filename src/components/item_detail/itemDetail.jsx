@@ -36,7 +36,11 @@ const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, m
                     
                     <div style={ productos_cards_caract_btn_blq}>
 
-                        { estaAgregado ? <div style={productos_cards_btns_blq}>  <Link to='/' style={productos_cards_btns}>Seguir comprando</Link> <Link to='/cart' style={productos_cards_btns}>Ir al carrito</Link> </div> 
+                        { estaAgregado ? 
+                        <div style={productos_cards_btns_blq}>
+                            <Link to='/' style={productos_cards_btns}>Seguir comprando</Link> 
+                            <Link to='/cart' style={productos_cards_btns}>Ir al carrito</Link> 
+                        </div> 
                         : <ItemCount style={ productos_cards_caract_btn_size} initial={1} stock={stock} onAdd={agregarCarrito} />
                         }
 
@@ -60,7 +64,6 @@ const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, m
         backgroundColor: 'white',
         alignItems: 'center',
         flexDirection: 'column',
-
     } 
     
     const productos_cards_img_blq  = {
