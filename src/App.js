@@ -4,12 +4,13 @@ import ItemDetailContainer from './containers/item_detail_container/itemDetailCo
 import ItemListContainer from './containers/item_list_container/itemListContainer';
 import NavBar from './components/nav_bar/navBar';
 import Cart  from './containers/cart/cart';
+import { CartPorvider } from './context/cartContext';
 
 function App() {
   return (
 
-
-    <BrowserRouter>
+    <CartPorvider>
+      <BrowserRouter>
       <NavBar/>
           <Routes>
               <Route path="/" element={<ItemListContainer/>}/>
@@ -17,7 +18,8 @@ function App() {
               <Route path="/detalle/:idProducto" element={<ItemDetailContainer />}/> 
               <Route path="/cart" element={<Cart/>}/>
           </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+    </CartPorvider>
   );
 }
 

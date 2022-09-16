@@ -16,7 +16,7 @@ const getItem = new Promise(
                 .then(json => data(json))
             }
             )
-        },2000);
+        },10);
     }
 )
 

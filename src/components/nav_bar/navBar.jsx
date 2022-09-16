@@ -13,11 +13,10 @@ const NavBar = () => {
                 <NavLink to="/category/Nike" style={style_nav_blq_btn_li}>Nike</NavLink>
                 
             </ul>
-            <div style={style_nav_cart}>
+            <NavLink to="/cart" style={style_nav_cart}>
                 <CartWidget/>
-            </div>
+            </NavLink>
         </nav>
-            
         </div>
 
     )
