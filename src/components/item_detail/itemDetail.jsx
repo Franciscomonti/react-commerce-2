@@ -10,13 +10,11 @@ const ItemDetail = ({ producto : {nombre, precio,portada,down,right,back, key, m
     const [imagenActiva, setImagenActiva] = useState(portada)
     const [estaAgregado, setEstaAgregado] = useState(false)
     const {productoAdd} = React.useContext(CartContext)
-    const [count, setCount] = useState(1)
 
 
-    function agregarCarrito() { 
+    function agregarCarrito(quantity) { 
         setEstaAgregado(true)
-        setCount(count)
-        productoAdd( {nombre, precio, id, count} )
+        productoAdd( {nombre, precio, id, quantity})
     }
 
     return(

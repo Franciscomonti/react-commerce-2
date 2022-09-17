@@ -6,10 +6,11 @@ const CartContext = React.createContext()
 const CartPorvider = ({children}) => {
 
     const [cartItem, setCartItem]  = useState([]);
+    
 
-    const productoAdd = (itemToAdd) => {
+    const productoAdd = (itemToAdd, quantity) => {
         setCartItem(() => {
-            return [...cartItem, itemToAdd]
+            return [...cartItem, itemToAdd, {quantity}]
         })
     }
 

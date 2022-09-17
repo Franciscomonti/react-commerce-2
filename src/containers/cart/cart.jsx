@@ -12,7 +12,7 @@ const Cart = () => {
             <div>
                 <h1>nombre{item.nombre}</h1>
                 <h2>precio{item.precio}</h2>
-                <h2>cantidad: {item.count}</h2>
+                <h2>cantidad: {item.quantity}</h2>
                 <p onClick={() => deleteProducto(item)}>eliminar</p>
             </div>
             )}
