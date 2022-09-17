@@ -5,14 +5,13 @@ const CartContext = React.createContext()
 
 const CartPorvider = ({children}) => {
 
-    const [cartItem, setCartItem]  = useState([]);
+    const [cartItem, setCartItem]  = useState([""]);
     
 
     const productoAdd = (itemToAdd, quantity) => {
-        setCartItem(() => {
-            return [...cartItem, itemToAdd, {quantity}]
-        })
-    }
+        setCartItem([...cartItem, itemToAdd,{ quantity}])
+        }
+    
 
     const deleteProducto = (itemDeleted) => {
         const itemsCart = cartItem.filter((item)=> item.id !== itemDeleted.id)
@@ -22,7 +21,7 @@ const CartPorvider = ({children}) => {
 
 
     return (
-        <CartContext.Provider value ={{cartItem,productoAdd,deleteProducto}}> {children} </CartContext.Provider>
+        <CartContext.Provider value ={{cartItem, productoAdd ,deleteProducto}}> {children} </CartContext.Provider>
     )
 }
 
